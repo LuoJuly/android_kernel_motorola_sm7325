@@ -10,7 +10,7 @@ git clone --recursive https://github.com/LuoJuly/android_kernel_motorola_sm7325 
 |---------|-------------|
 | lineage-23.2| Same As The Official LineageOS Kernel |
 | lineage-23.2-ReSukiSU | ReSukiSU Included |
-| lineage-23.2-SUSFS | ReSukiSU & SUSFS & Re-Kernel Included |
+| lineage-23.2-SUSFS | ReSukiSU & SUSFS & Re-Kernel & Droidspaces Included |
 
 # How do I submit patches to Android Common Kernels
 

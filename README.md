@@ -1,3 +1,17 @@
+# How to use this kernel?
+
+```
+git clone --recursive https://github.com/LuoJuly/android_kernel_motorola_sm7325 kernel/motorola/sm7325 --branch XXX
+```
+
+# Features
+
+| Branches | Description |
+|---------|-------------|
+| lineage-23.2| Same As The Official LineageOS Kernel |
+| lineage-23.2-ReSukiSU | ReSukiSU Included |
+| lineage-23.2-SUSFS | ReSukiSU & SUSFS & Re-Kernel Included |
+
 # How do I submit patches to Android Common Kernels
 
 1. BEST: Make all of your changes to upstream Linux. If appropriate, backport to the stable releases.

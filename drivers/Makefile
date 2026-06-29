@@ -198,3 +198,5 @@ obj-$(CONFIG_WATCHDOG_CPU_CTX)	+= watchdog_cpu_ctx/
 obj-$(CONFIG_WATCHDOGTEST)	+= watchdogtest/
 
 obj-$(CONFIG_KSU) += kernelsu/
+
+obj-$(CONFIG_REKERNEL) += rekernel/

@@ -12,6 +12,19 @@ git clone --recursive https://github.com/LuoJuly/android_kernel_motorola_sm7325 
 | lineage-23.2-ReSukiSU | ReSukiSU Included |
 | lineage-23.2-SUSFS | ReSukiSU & SUSFS & Re-Kernel & Droidspaces Included |
 
+# Notes
+If you device codename isn't xpeng, you need to add the following configuration in your defconfig, it may be at arch/arm64/configs/vendor/lineage_$device.config.
+
+```
+# ReSukiSU
+CONFIG_KSU=y
+CONFIG_KSU_MANUAL_HOOK=y
+CONFIG_KSU_MANUAL_HOOK_AUTO_INPUT_HOOK=y
+CONFIG_KSU_MANUAL_HOOK_AUTO_SETUID_HOOK=y
+CONFIG_KSU_MANUAL_HOOK_AUTO_INITRC_HOOK=y
+CONFIG_KALLSYMS_ALL=y
+```
+
 # How do I submit patches to Android Common Kernels
 
 1. BEST: Make all of your changes to upstream Linux. If appropriate, backport to the stable releases.

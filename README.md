@@ -12,6 +12,51 @@ git clone --recursive https://github.com/LuoJuly/android_kernel_motorola_sm7325 
 | lineage-23.2-ReSukiSU | ReSukiSU Included |
 | lineage-23.2-SUSFS | ReSukiSU & SUSFS & Re-Kernel & Droidspaces Included |
 
+# Notes
+If you device codename isn't xpeng, you need to add the following configuration in your defconfig, it may be at arch/arm64/configs/vendor/lineage_$device.config.
+
+```
+# ReSukiSU
+CONFIG_KSU=y
+CONFIG_KSU_SUSFS=y
+CONFIG_REKERNEL=y
+
+# Kernel configurations for full DroidSpaces support for GKI
+# Copyright (C) 2026 ravindu644 <droidcasts@protonmail.com>
+
+# IPC
+# CONFIG_SYSVIPC disabled - Android FCM v7 requires CONFIG_SYSVIPC=n
+CONFIG_POSIX_MQUEUE=y
+
+# Namespaces
+CONFIG_IPC_NS=y
+CONFIG_PID_NS=y
+
+# HW Access Support
+CONFIG_DEVTMPFS=y
+
+# Networking (Enhanced NAT support)
+CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=y
+
+# --- Below configs are optional but recommended ---
+
+# UFW support
+CONFIG_NETFILTER_XT_TARGET_REJECT=y
+CONFIG_NETFILTER_XT_TARGET_LOG=y
+CONFIG_NETFILTER_XT_MATCH_RECENT=y
+
+# Fail2ban support
+CONFIG_IP_SET=y
+CONFIG_IP_SET_HASH_IP=y
+CONFIG_IP_SET_HASH_NET=y
+CONFIG_NETFILTER_XT_SET=y
+
+# Enable xattr, posix acl support on tmpfs
+# For NixOS support
+CONFIG_TMPFS_POSIX_ACL=y
+CONFIG_TMPFS_XATTR=y
+```
+
 # How do I submit patches to Android Common Kernels
 
 1. BEST: Make all of your changes to upstream Linux. If appropriate, backport to the stable releases.

@@ -10,7 +10,7 @@ git clone --recursive https://github.com/LuoJuly/android_kernel_motorola_sm7325 
 |---------|-------------|
 | lineage-23.2| Same As The Official LineageOS Kernel |
 | lineage-23.2-ReSukiSU | ReSukiSU Included |
-| lineage-23.2-SUSFS | ReSukiSU & SUSFS & Re-Kernel & Droidspaces Included |
+| lineage-23.2-SUSFS | ReSukiSU & SUSFS & Re-Kernel & Droidspaces & Baseband-guard & BBRv3 Included |
 
 # Notes
 If you device codename isn't xpeng, you need to add the following configuration in your defconfig, it may be at arch/arm64/configs/vendor/lineage_$device.config.
@@ -55,6 +55,19 @@ CONFIG_NETFILTER_XT_SET=y
 # For NixOS support
 CONFIG_TMPFS_POSIX_ACL=y
 CONFIG_TMPFS_XATTR=y
+
+# Baseband-guard
+CONFIG_BBG=y
+CONFIG_LSM="lockdown,yama,loadpin,safesetid,integrity,selinux,smack,tomoyo,apparmor,bpf,baseband_guard"
+
+# BBRv3
+CONFIG_TCP_CONG_ADVANCED=y
+CONFIG_TCP_CONG_BBR=y
+CONFIG_DEFAULT_BBR=y
+CONFIG_DEFAULT_TCP_CONG="bbr"
+CONFIG_NET_SCH_FQ=y
+CONFIG_TCP_ECN=y
+CONFIG_TCP_CONG_CUBIC=y
 ```
 
 # How do I submit patches to Android Common Kernels

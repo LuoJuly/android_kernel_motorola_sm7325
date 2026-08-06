@@ -8,7 +8,6 @@ git clone --recursive https://github.com/LuoJuly/android_kernel_motorola_sm7325 
 
 | Branches | Description |
 |---------|-------------|
-| lineage-23.2| Same As The Official LineageOS Kernel |
 | lineage-23.2-ReSukiSU | ReSukiSU Included |
 | lineage-23.2-SUSFS | ReSukiSU & SUSFS & Re-Kernel & Droidspaces & Baseband-guard & BBRv3 Included |
 
